@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import { useEffect } from 'react'
 import './App.css'
-import { useAppDispatch, useAppSelector } from './hooks/useStore'
+import { useAppDispatch } from './hooks/useStore'
 import { fetchGetBooks } from './store/books/slice'
+import { GeneralList } from './components/GeneralList'
 
 function App () {
-  const booksState = useAppSelector((state) => state.books)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function App () {
 
   return (
     <>
-      { booksState.loanding === true && booksState.error !== true ? <h2>Cargando...</h2> : <h3> {JSON.stringify(booksState.data)} </h3>}
+      <GeneralList/>
     </>
   )
 }
