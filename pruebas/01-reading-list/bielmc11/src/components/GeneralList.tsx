@@ -2,7 +2,7 @@ import { useAppSelector } from '../hooks/useStore'
 
 export const GeneralList = () => {
   const generalBooks = useAppSelector((state) => state.books)
-  console.log(generalBooks.data)
+  // nconsole.log(generalBooks.data)
   return (
     <div className='list_wrapper'>
         {generalBooks.loanding === true && generalBooks.error !== true &&
