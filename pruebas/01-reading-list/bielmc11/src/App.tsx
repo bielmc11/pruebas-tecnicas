@@ -8,6 +8,7 @@ import { Header } from './components/Header'
 // import { useQuery } from '@tanstack/react-query'
 
 function App () {
+  // Esto no lo estoy usando era para probar el react query
   const myfetchForTanstack = async () => {
     try {
       const data = await fetch('https://jsonplaceholder.typicode.com/users')
@@ -33,7 +34,7 @@ function App () {
   return (
     <div className='app_wrapper flex flex-col'>
      <Header />
-      {/* <GeneralList/> */}
+      <GeneralList/>
     </div>
   )
 }

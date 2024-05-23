@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { type APIResults } from '../../interfaces/interfaces'
+import { type Library } from '../../interfaces/interfaces'
 import { getBooks } from '../../services/books'
 
 export const fetchGetBooks = createAsyncThunk(
@@ -11,7 +11,7 @@ export const fetchGetBooks = createAsyncThunk(
 )
 
 interface booksSliceInterface {
-  data: APIResults // | []
+  data: Library[]
   loanding: null | boolean
   error: null | boolean
 }
@@ -29,36 +29,28 @@ const initialState = (): booksSliceInterface => {
 
   return {
     // antes en data habia solo [] pero daba error en GeneralList para mostrar .libray ya que data podia ser solo []
-    data: {
-      library: [
-        {
-          book: {
-            ISBN: '-',
-            title: '-',
-            pages: 0,
-            genre: '-',
-            cover: '-',
-            synopsis: '-',
-            year: 0,
-            author: {
-              name: '-',
-              otherBooks: []
-            }
-
+    data: [
+      {
+        book: {
+          ISBN: '-',
+          title: '-',
+          pages: 0,
+          genre: '-',
+          cover: '-',
+          synopsis: '-',
+          year: 0,
+          author: {
+            name: '-',
+            otherBooks: []
           }
+
         }
-      ]
-    },
+      }
+    ],
     loanding: null,
     error: null
   }
 }
-
-/* const initialState: booksSliceInterface = {
-  data: [],
-  loanding: null,
-  error: null
-} */
 
 export const booksSlice = createSlice({
   name: 'books',
