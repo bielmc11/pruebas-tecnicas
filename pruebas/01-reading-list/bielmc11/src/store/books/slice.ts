@@ -57,7 +57,6 @@ export const booksSlice = createSlice({
   initialState,
   reducers: {
     proveReducer (state) {
-      console.log('estoy dentro del reducer de prueba')
       return { ...state, error: true }
     }
   },
@@ -70,8 +69,8 @@ export const booksSlice = createSlice({
 
     builder.addCase(fetchGetBooks.fulfilled, (state, action) => {
       console.log('cargado!!!!')
-      state.loanding = false
       state.data = action.payload
+      state.loanding = false
     })
 
     builder.addCase(fetchGetBooks.rejected, (state) => {

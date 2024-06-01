@@ -23,3 +23,16 @@ export interface Author {
   name: string
   otherBooks: string[]
 }
+
+export interface FilterBooks {
+  maxPages: number | null
+  genre: Genre
+}
+
+export enum Genre {
+  ALL = 'all',
+  FICCION = 'Ciencia ficción',
+  FANTASIA = 'Fantasía',
+  ZOMBIES = 'Zombies',
+  TERROR = 'Terror'
+}

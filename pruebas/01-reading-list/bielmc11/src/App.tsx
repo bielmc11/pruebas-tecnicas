@@ -33,7 +33,7 @@ function App () {
 
   return (
     <div className='app_wrapper flex flex-col'>
-     <Header />
+     {/* <Header />  */}
       <GeneralList/>
     </div>
   )
