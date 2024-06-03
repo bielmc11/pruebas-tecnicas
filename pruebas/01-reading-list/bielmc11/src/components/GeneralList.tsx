@@ -1,8 +1,8 @@
 import { GeneralBooks } from './GeneralBooks'
 
-export const GeneralList = () => {
+export const GeneralList = ({ inputRef }: any) => {
   return (
-    <div className='list bg-gray-200 pt-24' id='listOfBooks'>
+    <div className='list bg-gray-200 pt-24' id='listOfBooks' ref={inputRef}>
 
       <div className='list_wrapper container flex flex-col'>
 

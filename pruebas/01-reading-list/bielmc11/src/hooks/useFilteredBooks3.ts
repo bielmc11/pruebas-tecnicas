@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react'
-import { useAppSelector } from './useStore'
+import { useAppDispatch, useAppSelector } from './useStore'
 import { Genre, type Library } from '@/interfaces/interfaces'
+import { fetchGetBooks } from '@/store/books/slice'
 
 export const useFilteredBooks3 = () => {
-  const { data, loanding, error } = useAppSelector((state) => state.books)
+  const { data, loanding } = useAppSelector((state) => state.books)
   const filters = useAppSelector((state) => state.booksFilter)
+  // const [isLoanding, setIsLoanding] = useState<boolean | null>(null)
 
   const [filteredBooks, setFilteredBooks] = useState<Library[]>()
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    dispatch(fetchGetBooks())
+  }, [])
 
   useEffect(() => {
     if (loanding === false) {
@@ -22,5 +30,6 @@ export const useFilteredBooks3 = () => {
       setFilteredBooks(newfilteredBooks) //! Esto es lo que acabo de cambviar mirar si funciona
     }
   }, [filters, loanding])
-  return { filteredBooks, loanding, error }
+
+  return { filteredBooks, loanding }
 }

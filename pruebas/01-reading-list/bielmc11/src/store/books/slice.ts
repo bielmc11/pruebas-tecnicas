@@ -7,8 +7,7 @@ export const fetchGetBooks = createAsyncThunk(
   async () => {
     const myBooks = await getBooks
     return myBooks
-  }
-)
+  })
 
 interface booksSliceInterface {
   data: Library[]
