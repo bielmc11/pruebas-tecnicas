@@ -1,10 +1,11 @@
-import { useFilteredBooks4 } from '@/hooks/useFilteredBooks4'
+import { useFilteredBooks } from '@/hooks/useFilteredBooks'
 import './GeneralBooks.css'
 import { Card, CardContent, CardHeader, CardDescription, CardFooter, CardTitle } from './ui/card'
 export const GeneralBooks = () => {
-  const { data, loanding, filteredData, error } = useFilteredBooks4()
+  const { data, loanding, filteredData, error } = useFilteredBooks()
 
   // TODO HAY QUE CAMBIAR DATA POR FILTEREDDATA
+  //! MIRAR EL MENSAJE DE ARRIBA
   return (
     <div>
             {loanding === true && error !== true &&

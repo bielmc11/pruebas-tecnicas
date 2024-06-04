@@ -1,32 +1,22 @@
-import { useEffect, useState } from 'react'
-import { useAppSelector } from './useStore'
-import { type Library } from '@/interfaces/interfaces'
-
-interface FilteredBooksInterface {
-  data: Library[]
-  isFiltered: boolean | null
-}
+import { useEffect, useMemo } from 'react'
+import { useAppDispatch, useAppSelector } from './useStore'
+import { fetchGetBooks } from '@/store/books/slice'
 
 export const useFilteredBooks = () => {
-  const allBooksState = useAppSelector((state) => state.books)
-  const [filteredBooks, setFilteredBooks] = useState<FilteredBooksInterface>({ data: [], isFiltered: false })
-
-  // console.log(allBooksState)
-
+  const { data, loanding, error } = useAppSelector((state) => state.books)
+  const dispatch = useAppDispatch()
   useEffect(() => {
-    if (allBooksState.loanding === false) {
-      setFilteredBooks({ data: allBooksState.data, isFiltered: true })
-      // console.log({ data: allBooksState.data, isFiltered: true })
-    }
-  }, [allBooksState.loanding])
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    dispatch(fetchGetBooks())
+  }, [])
 
-  if (allBooksState.data.length <= 1) {
-    return { filteredBooks: [], isLoanding: true, isError: false }
+  const filteredData = useMemo(() => {
+    return data.slice(1, 5)
+  }, [data])
+
+  const nada = () => {
+    scrollTo()
   }
 
-  return {
-    filteredBooks,
-    isLoanding: allBooksState.loanding,
-    isError: allBooksState.error
-  }
+  return { data, loanding, filteredData, error }
 }

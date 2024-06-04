@@ -6,9 +6,12 @@ import { Header } from './components/Header'
 // import { useQuery } from '@tanstack/react-query'
 
 function App () {
-  const inputRef = useRef(null)
+  const inputRef = useRef<HTMLDivElement>(null)
   const handleInputRef = () => {
-    inputRef?.current?.scrollIntoView({ behavior: 'smooth' })
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (inputRef.current) {
+      inputRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }
   }
   // Esto no lo estoy usando era para probar el react query
   /* const myfetchForTanstack = async () => {
@@ -36,7 +39,7 @@ function App () {
   return (
     <div className='app_wrapper flex flex-col'>
       <Header handleInputRef={ handleInputRef} />
-      <GeneralList inputRef={inputRef} />
+      <GeneralList ref={inputRef} />
     </div>
   )
 }
