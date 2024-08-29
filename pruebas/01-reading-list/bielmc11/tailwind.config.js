@@ -11,7 +11,6 @@ module.exports = {
   theme: {
     fontFamily: {
       titles: ["Oswald", "sans-serif"],
-
     },
     container: {
       center: true,

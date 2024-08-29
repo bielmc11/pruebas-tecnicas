@@ -60,14 +60,11 @@ export const booksSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    // Tengo que mirar que tipo devuelve action.paload (que será myBooks)
     builder.addCase(fetchGetBooks.pending, (state) => {
-      console.log('cargando...')
       state.loanding = true
     })
 
     builder.addCase(fetchGetBooks.fulfilled, (state, action) => {
-      console.log('cargado!!!!')
       state.data = action.payload
       state.loanding = false
     })

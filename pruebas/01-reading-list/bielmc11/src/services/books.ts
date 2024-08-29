@@ -21,5 +21,5 @@ export const getBooks = new Promise<Library[]>((resolve) => {
       }
     })
     resolve(mappedBooks)
-  }, 500)
+  }, 300)
 })

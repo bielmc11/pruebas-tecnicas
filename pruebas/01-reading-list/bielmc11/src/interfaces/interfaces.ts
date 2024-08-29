@@ -27,6 +27,7 @@ export interface Author {
 export interface FilterBooks {
   maxPages: number | null
   genre: Genre
+  bookToSearch: string
 }
 
 export enum Genre {

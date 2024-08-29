@@ -1,22 +1,33 @@
-import { useEffect, useMemo } from 'react'
-import { useAppDispatch, useAppSelector } from './useStore'
-import { fetchGetBooks } from '@/store/books/slice'
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "./useStore";
+import { Genre, Library } from "@/interfaces/interfaces";
+import { useDebouncer } from "./useDebouncer";
+import { addBook } from "@/store/MyBooks/slice";
 
 export const useFilteredBooks = () => {
-  const { data, loanding, error } = useAppSelector((state) => state.books)
-  const dispatch = useAppDispatch()
+  const { data, loanding, error } = useAppSelector((state) => state.books);
+
+  const { maxPages, genre } = useAppSelector((state) => state.booksFilter);
+  const { finalBooksList, handlePreviousList } = useDebouncer();
+
+  const dispatch = useAppDispatch();
+  const addBookToFavs = (book: Library) => {
+    dispatch(addBook(book));
+  };
+
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    dispatch(fetchGetBooks())
-  }, [])
+    const newList = () => {
+      if (maxPages === null && genre === Genre.ALL) return data;
+      if (maxPages === null)
+        return data.filter((books) => books.book.genre === genre);
+      if (genre === Genre.ALL)
+        return data.filter((books) => books.book.pages <= maxPages);
+      return data.filter(
+        (books) => books.book.genre === genre && books.book.pages <= maxPages
+      );
+    };
+    handlePreviousList(newList());
+  }, [data, maxPages, genre]);
 
-  const filteredData = useMemo(() => {
-    return data.slice(1, 5)
-  }, [data])
-
-  const nada = () => {
-    scrollTo()
-  }
-
-  return { data, loanding, filteredData, error }
-}
+  return { data, loanding, error, finalBooksList, addBookToFavs };
+};

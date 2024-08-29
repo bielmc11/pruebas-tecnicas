@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import booksReducer from './books/slice'
-import myBooksReducer from './myBooks/slice'
+import booksFilter from './booksFilters/slice'
+import myBooksReducer from './MyBooks/slice'
 
 //! AQUI TENGO QUE HACER LOS MIDDLEWARE PARA HACER CARGA OPTIMA
 
@@ -14,7 +15,8 @@ import myBooksReducer from './myBooks/slice'
 export const store = configureStore({
   reducer: {
     books: booksReducer,
-    booksFilter: myBooksReducer
+    booksFilter ,
+    myBooks: myBooksReducer
   }
   /* middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(persistenceLocalStorageMiddleware) */
 })
