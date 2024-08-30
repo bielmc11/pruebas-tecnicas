@@ -21,7 +21,7 @@ export const useDebouncer = () => {
     const debouncerFunction = setTimeout(searchBooksFunction, 300)
     return () => { clearTimeout(debouncerFunction) }
   }
-  , [bookToSearch, previousList]) // + NewinputName
+  , [bookToSearch, previousList])
 
   const handlePreviousList = (newList: Library[]) => {
     setPreviousList(newList)

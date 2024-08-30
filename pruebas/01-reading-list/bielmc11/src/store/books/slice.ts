@@ -27,7 +27,6 @@ const initialState = (): booksSliceInterface => {
   }
 
   return {
-    // antes en data habia solo [] pero daba error en GeneralList para mostrar .libray ya que data podia ser solo []
     data: [
       {
         book: {
@@ -54,11 +53,7 @@ const initialState = (): booksSliceInterface => {
 export const booksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {
-    proveReducer (state) {
-      return { ...state, error: true }
-    }
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchGetBooks.pending, (state) => {
       state.loanding = true
@@ -67,7 +62,7 @@ export const booksSlice = createSlice({
     builder.addCase(fetchGetBooks.fulfilled, (state, action) => {
       state.data = action.payload
       state.loanding = false
-    })
+    }) 
 
     builder.addCase(fetchGetBooks.rejected, (state) => {
       console.log('ocurrio un error men')
@@ -77,4 +72,3 @@ export const booksSlice = createSlice({
 })
 
 export default booksSlice.reducer
-export const { proveReducer } = booksSlice.actions

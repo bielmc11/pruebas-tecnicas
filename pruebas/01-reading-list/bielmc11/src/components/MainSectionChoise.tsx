@@ -37,7 +37,7 @@ export const MainSectionChoise = () => {
     }
 
     return (
-        <main id="main" className="bg-gray-200 min-h-screen min-w-screen" >
+        <main id="main" className="bg-gray-200 min-h-screen min-w-screen pb-6" >
             <div className="container flex gap-3 justify-center">
                 <button 
                     onClick={SwapToGeneral}

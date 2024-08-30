@@ -75,7 +75,7 @@ export const GeneralBooks = () => {
                       }}
                       disabled={isInMyList(book.book.ISBN)}
                     >
-                      Añadir a favoritos
+                      Add to favorites
                     </Button>
                   </CardFooter>
                 </Card>

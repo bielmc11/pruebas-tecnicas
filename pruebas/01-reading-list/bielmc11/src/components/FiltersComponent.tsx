@@ -23,15 +23,11 @@ export const FiltersComponent = () => {
     dispatch(setBookToSearch(newValue))
   }
 
-  // USARE SELECTOR PARA LANGUAGE
-
   return (
-    // AUNQUE ANTES PUEDE EXPERIMENTEAR CON LOS INPUTS Y EL CSS
     <div className="self-start    text-sm  tracking-widest cursor-pointer">
 
         <DropdownMenu>
           <DropdownMenuTrigger>
-            {/* // !Aqui puede haber un problema por el botton */}
             <div className='flex justify-center gap-1 items-center bg-green-500 text-gray-50 hover:bg-green-600 hover:text-white rounded-lg self-start px-3 py-2 text-sm'>
               <FilterIcon />
               Filters
@@ -42,7 +38,6 @@ export const FiltersComponent = () => {
           <DropdownMenuLabel>Filter by:</DropdownMenuLabel>
           <DropdownMenuSeparator/>
 
-          {/* //! Aqui hay que ajustar el with en tamaño phone */}
           <div className='flex justify-center p-3'>
             <div className='w-full flex flex-col gap-4'>
 
@@ -58,7 +53,6 @@ export const FiltersComponent = () => {
                     defaultValue={maxPages ?? 1211}
                     onChange={handleMaxPagesChange}
                   />
-                  {/* AHORA EL VALUE DEAFAULT ES 1211 PERO EL NUMBERO ES 0 */}
                   <div className='flex justify-center min-w-[40px] items-center'>
                     <span>{maxPages}</span>
                   </div>
@@ -66,8 +60,7 @@ export const FiltersComponent = () => {
               </div>
               <div className='w-full flex flex-col gap-2'>
                 <Label htmlFor='bookToSearch'>BOOK TO SEARCH:</Label>
-{/*                 <input onChange={handleBookToSearchChange} type="text" name="" id="" className='bg-gray-200' />
- */}                <Input type='text' placeholder='Search your book' defaultValue={bookToSearch} onChange={handleBookToSearchChange}/>
+                <Input type='text' placeholder='Search your book' defaultValue={bookToSearch} onChange={handleBookToSearchChange}/>
               </div>
 
             </div>

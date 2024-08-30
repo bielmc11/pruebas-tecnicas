@@ -19,10 +19,10 @@ export const MyBooks = () => {
     <div>
       <div className="pt-10">
         <h2 className="font-bold font-[titles] tracking-tighter text-6xl xl:text-5xl">
-          Your Favourite Books
+          Your Favorite Books
         </h2>
         {state.length === 0 && (
-          <p className="text-center">No favourite books yet</p>
+          <p className="text-center">There are no favorite books yet</p>
         )}
         <article className="grid myGridBooks min-h-[100px] pt-10">
           {state.map((book, i) => {
@@ -53,7 +53,7 @@ export const MyBooks = () => {
                         transition-all duration-200"
                       onClick={() => dispatch(removeBook(book.book.ISBN))}
                     >
-                      Eliminar de favoritos
+                      Delete
                     </Button>
                   </CardFooter>
                 </Card>

@@ -8,7 +8,6 @@ const myBooks = createSlice({
   name: "myBooks",
   initialState,
   reducers: {
-    //TODO AÑADIR FILTRO POR SI YA ESTA EN LA LISTA O ANULAR EL BOTON SI YA ESTA EN LA LISTA ASI YA NO TENGO QUE AÑADIOR NADA
     addBook: (state, action: PayloadAction<Library>) => {
       state.push(action.payload);
       localStorage.setItem("myBooks", JSON.stringify(state));

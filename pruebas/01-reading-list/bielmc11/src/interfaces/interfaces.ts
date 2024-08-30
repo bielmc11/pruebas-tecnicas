@@ -1,9 +1,8 @@
-// List of objects
 export interface APIResults {
   library: Library[]
 }
 
-// Object
+
 export interface Library {
   book: Book
 }
