@@ -1,9 +1,11 @@
 import { Library } from "@/interfaces/interfaces";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState: Library[] = localStorage.getItem("myBooks")
-  ? JSON.parse(localStorage.getItem("myBooks"))
+
+const initialState: Library[] = localStorage.getItem("myBooks") && localStorage.getItem("myBooks") !== 'null'
+  ? JSON.parse(localStorage.getItem("myBooks") || '[]')
   : [];
+
 const myBooks = createSlice({
   name: "myBooks",
   initialState,

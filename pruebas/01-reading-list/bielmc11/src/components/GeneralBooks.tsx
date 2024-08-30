@@ -23,7 +23,7 @@ export const GeneralBooks = () => {
   if (finalBooksList.length === 1 && finalBooksList[0].book.pages === 0) {
     return (
       <div className="flex flex-col justify-center items-center bg-red w-full h-[200px] justify-self-center">
-        <p className="font-bold text-xl">Cargando...</p>
+        <p className="font-bold text-xl">Loanding...</p>
       </div>
     );
   }
@@ -38,7 +38,7 @@ export const GeneralBooks = () => {
 
       {finalBooksList.length === 0 && (
         <div className="flex flex-col justify-center items-center w-full h-[200px] justify-self-center">
-          <p className="font-bold text-xl">NO HAY RESULTADOS </p>
+          <p className="font-bold text-xl">THERE ARE NO RESULTS</p>
           <span className="font-bold text-xl">😥</span>
         </div>
       )}
