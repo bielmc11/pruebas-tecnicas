@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import booksReducer from './books/slice'
 import booksFilter from './booksFilters/slice'
-import myBooksReducer from './MyBooks/slice'
+import myBooksReducer from './MyBooks/slice.ts'
 
 
 /* const persistenceLocalStorageMiddleware: Middleware = (state) => (next) => (action: any) => {

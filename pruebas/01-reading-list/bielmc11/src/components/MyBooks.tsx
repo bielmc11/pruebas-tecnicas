@@ -9,11 +9,11 @@ import {
 } from "./ui/card";
 import { useAppDispatch, useAppSelector } from "@/hooks/useStore";
 import { Button } from "./ui/button";
-import { removeBook } from "@/store/MyBooks/slice";
+import { removeBook } from "@/store/MyBooks/slice.ts";
 import { Library } from "@/interfaces/interfaces";
 
 export const MyBooks = () => {
-  const myBooks: Library[] = useAppSelector((state) => state.myBooks);
+  const myBooks: Library[] = useAppSelector((state) => state.myBooks as Library[]);
   const dispatch = useAppDispatch();
 
   return (

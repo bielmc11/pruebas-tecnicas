@@ -12,9 +12,10 @@ import { Button } from "./ui/button";
 import { useAppSelector } from "@/hooks/useStore";
 import { Library } from "@/interfaces/interfaces";
 
+
 export const GeneralBooks = () => {
   const { loanding, error, finalBooksList, addBookToFavs } = useFilteredBooks();
-  const myBooks : Library[] = useAppSelector((state) => state.myBooks);
+  const myBooks : Library[] = useAppSelector((state) => state.myBooks as Library[]);
 
   const isInMyList = (ISBN: string) => {
     const isIN = myBooks.some((book) => book.book.ISBN === ISBN);
