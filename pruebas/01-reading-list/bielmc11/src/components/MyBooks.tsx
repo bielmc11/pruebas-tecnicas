@@ -10,9 +10,10 @@ import {
 import { useAppDispatch, useAppSelector } from "@/hooks/useStore";
 import { Button } from "./ui/button";
 import { removeBook } from "@/store/MyBooks/slice";
+import { Library } from "@/interfaces/interfaces";
 
 export const MyBooks = () => {
-  const state = useAppSelector((state) => state.myBooks);
+  const myBooks: Library[] = useAppSelector((state) => state.myBooks);
   const dispatch = useAppDispatch();
 
   return (
@@ -21,11 +22,11 @@ export const MyBooks = () => {
         <h2 className="font-bold font-[titles] tracking-tighter text-6xl xl:text-5xl">
           Your Favorite Books
         </h2>
-        {state.length === 0 && (
+        {myBooks.length === 0 && (
           <p className="text-center">There are no favorite books yet</p>
         )}
         <article className="grid myGridBooks min-h-[100px] pt-10">
-          {state.map((book, i) => {
+          {myBooks.map((book, i: number) => {
             return (
               <section key={i} className="grid_book" id="booksList">
                 <Card className="book_wrapper h-full bg-gray-50">
