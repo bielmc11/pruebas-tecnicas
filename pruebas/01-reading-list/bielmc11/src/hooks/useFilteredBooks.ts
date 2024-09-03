@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "./useStore";
 import { Genre, Library } from "@/interfaces/interfaces";
 import { useDebouncer } from "./useDebouncer";
-import { addBook } from "@/store/MyBooks/slice";
+import { addBook } from "@/store/MyListBooks/slice";
 
 export const useFilteredBooks = () => {
   const { data, loanding, error } = useAppSelector((state) => state.books);

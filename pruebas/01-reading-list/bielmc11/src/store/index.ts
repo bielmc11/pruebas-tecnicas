@@ -1,8 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit'
-import booksReducer from './books/slice'
-import booksFilter from './booksFilters/slice'
-import myBooksReducer from './MyBooks/slice.ts'
-
+import { configureStore } from "@reduxjs/toolkit";
+import booksReducer from "./books/slice";
+import booksFilter from "./booksFilters/slice";
+import myBooksReducer from "./MyListBooks/slice.ts";
 
 /* const persistenceLocalStorageMiddleware: Middleware = (state) => (next) => (action: any) => {
   const { type, payload } = action
@@ -13,11 +12,11 @@ import myBooksReducer from './MyBooks/slice.ts'
 export const store = configureStore({
   reducer: {
     books: booksReducer,
-    booksFilter ,
-    myBooks: myBooksReducer
-  }
+    booksFilter,
+    myBooks: myBooksReducer,
+  },
   /* middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(persistenceLocalStorageMiddleware) */
-})
+});
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
