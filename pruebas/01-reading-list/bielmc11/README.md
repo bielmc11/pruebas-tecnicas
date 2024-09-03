@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Your next book 📚
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Proyecto  basado en el repositorio pruebas-técnias de [@midudev](https://github.com/midudev/pruebas-tecnicas).
 
-## Expanding the ESLint configuration
+Un almacén de libros donde se puede buscar por género, nombre o número máximo de paginas. También se pueden añadir y eliminar libros de una lista de favoritos, con persistencia de datos.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Tecnologias y bibliotecas usadas:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+ - Vite + React + TS
+ - Bibliotecas: Redux, Tailwind, Shadcn/ui
+ - Desplegado en Vercel
+
+
+## Authors
+
+- [@bielmcr11](https://github.com/bielmc11) 
+
+
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+
+
+## Demo
+
+https://pruebas-tecnicas-ruby.vercel.app/
+
+
+## Contributing
+
+Todas las aportaciones y sugerencias para mejorar son bienvenidas 👌.
